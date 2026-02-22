@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de ingressos</title>
+    <script src="js/app.js" defer></script>
+    <link rel="stylesheet" href="style/bootstrap.css">
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+   
+    <div class="container text-light div-mae" id="div-mae"> 
+        <div class="div-logo mb-5">
+           <img src="assets/images/logo-full.svg" alt="">
+        </div>
+       <div class="div-titulo text-center" id="divTitulo">
+            Lorem ipsum dolor, sit amet consectetur adipisicing 
+            elit. Unde, pariatur odit id nobis eaque praesentium
+             provident, illo rem quos mollitia ex officia! Alias
+              dicta, temporibus consectetur a dolores maiores? Earum.
+       </div>
+
+       <div class="div-form" id="divForm">
+            <div class="input-div">
+                
+                <label for="inputFile">Insira uma foto</label>
+
+                <label for="inputFile" class="labelFile mt-3">
+                    <img src="assets/images/icon-upload.svg" alt="" id="imgPreview">
+                    <p>click ou arraste uma imagem para fazer uploud</p>
+                </label>
+                
+                <input type="file" id="inputFile" class="inputFile">
+                <p class="" id="messageFile"></p>
+            </div>
+
+            <div class="input-div">
+                <label for="inputName">Nome Completo</label>
+                <input type="text" id="inputName">
+                 <p class="" id="messageName"></p>
+            </div>
+
+            <div class="input-div">
+                <label for="inputEmail">Email </label>
+                <input type="email" id="inputEmail">
+                 <p class="" id="messageEmail"></p>
+            </div>
+
+            <div class="input-div">
+                <label for="inputGit">Github</label>
+                <input type="text" id="inputGit">
+                 <p class="" id="messageGit"></p>
+            </div>
+
+            <button id="sendButton" class="send-button"> Gerar meu ingresso</button>
+
+             
+       </div>
+        
+    </div>
+    
+    
+</body>
+</html>
