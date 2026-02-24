@@ -27,41 +27,62 @@ const ano = hoje.getFullYear();
 
 const minhaDataHoje = `${dia}/${mes}/${ano}`
 
+
+//Eliminando as mensgens de erro
+
+
+const deleteErrorMessage = (input, message) => {
+    input.addEventListener('input', () => {
+        message.textContent = ""
+    })
+}
+
+deleteErrorMessage(inputName, messageName)
+deleteErrorMessage(inputEmail, messageEmail)
+deleteErrorMessage(inputGit, messageGit)
+
+//--------------------------------------------------------------------
+
+// Validando e Enviando o formulario
 const sendForm = () => {
 
-    if (inputName.value === "") {
-        messageName.textContent = "Insira um nome valido"
-        return inputName.focus()
-    } else {
-        if (inputEmail.value === "") {
+    messageName.textContent = "";
+    messageEmail.textContent = "";
+    messageGit.textContent = "";
 
-            messageEmail.textContent = "Insira um email valido"
-            return inputEmail.focus()
-
-        } else {
-            if (!inputEmail.value.includes("@")) {
-
-                messageEmail.textContent = "O email deve conter um @"
-                return inputEmail.focus()
-
-            } else {
-                if (inputGit.value === "") {
-                    messageGit.textContent = "Insira um git valido"
-                    return inputGit.focus()
-                } else {
-                    renderIngresso();
-                }
-            }
-
-        }
+    if (inputName.value.trim() === "") {
+        messageName.textContent = "Insira um nome válido";
+        inputName.focus();
+        return;
     }
+
+    if (inputEmail.value.trim() === "") {
+        messageEmail.textContent = "Insira um email válido";
+        inputEmail.focus();
+        return;
+    }
+
+    if (!inputEmail.value.includes("@")) {
+        messageEmail.textContent = "O email deve conter um @";
+        inputEmail.focus();
+        return;
+    }
+
+    if (inputGit.value.trim() === "" || !inputGit.value.includes(".github.com")) {
+        messageGit.textContent = "Insira um git válido";
+        inputGit.focus();
+        return;
+    }
+
+    renderIngresso();
 }
+
 
 inputFile.addEventListener('change', (e) => {
     const file = e.target.files[0];
     const nomeArquivo = file.name
     const tamanhoArquivo = file.size
-    console.log(tamanhoArquivo)
+    //console.log(tamanhoArquivo)
 
     if (file) {
         URL.revokeObjectURL(urlImage)
@@ -85,7 +106,14 @@ inputFile.addEventListener('change', (e) => {
 })
 
 
+//------------------------------------------------------------
+
+//Renderizar ingresso e a mensagem de sucesso
 const renderIngresso = () => {
+
+
+
+    divTitulo.textContent = "wetryetryteurutyurtyu"
 
     const imagemAvatar = urlImage || '../assets/images/image-avatar.jpg';
     const minhaDiv = document.createElement("div")
@@ -108,6 +136,7 @@ const renderIngresso = () => {
 
     divForm.innerHTML = '';
     divForm.appendChild(minhaDiv);
-}
 
+}
+//----------------------------------------------
 sendButton.addEventListener("click", sendForm);
